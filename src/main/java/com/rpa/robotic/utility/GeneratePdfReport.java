@@ -2,12 +2,17 @@ package com.rpa.robotic.utility;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -17,18 +22,27 @@ import com.rpa.robotic.entity.Registration;
 
 public class GeneratePdfReport {
 
-	public static ByteArrayInputStream citiesReport(Registration r, BankInformation bi) {
+	public static ByteArrayInputStream citiesReport(Registration r, BankInformation bi)
+			throws MalformedURLException, IOException {
 
 		Document document = new Document();
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 
 		try {
 
+			URL url = new URL("https://www.kgisl.com/images/kgisl_logo.png");
+			Image img = Image.getInstance(url);
+
+			Font headFont = FontFactory.getFont(FontFactory.TIMES_BOLD, 18f);
+			Paragraph title = new Paragraph("Customer copy- Client on bording", headFont);
+			title.setAlignment(Element.ALIGN_CENTER);
+
 			PdfPTable table = new PdfPTable(2);
+			table.setSpacingBefore(20);
 			table.setWidthPercentage(80);
 			table.setWidths(new int[] { 3, 3 });
 
-			Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+			headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
 
 			PdfPCell hcell;
 
@@ -178,6 +192,8 @@ public class GeneratePdfReport {
 
 			PdfWriter.getInstance(document, out);
 			document.open();
+			document.add(img);
+			document.add(title);
 			document.add(table);
 
 			document.close();

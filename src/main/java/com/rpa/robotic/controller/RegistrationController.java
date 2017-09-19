@@ -56,6 +56,7 @@ public class RegistrationController {
 		masterResult.forEach(r -> System.out.println(r));
 		System.out.println(masterResult.size());
 		model.addAttribute("ele", masterResult);
+
 		return "master";
 	}
 
@@ -66,7 +67,7 @@ public class RegistrationController {
 		BankInformation bi = rs.findBankIf(id);
 		ByteArrayInputStream bis = GeneratePdfReport.citiesReport(r, bi);
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Content-Disposition", "inline; filename=citiesreport.pdf");
+		headers.add("Content-Disposition", "inline; filename=cobreport.pdf");
 
 		return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
 				.body(new InputStreamResource(bis));
