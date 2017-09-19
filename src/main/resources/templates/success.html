@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI Light", "Segoe UI", "Segoe WP", "Helvetica Neue",
+        sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333;
+        background: #f4f7f6;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP",
+        sans-serif;
+        font-weight: 100;
+        line-height: 1.1;
+        color: inherit;
+    }
+
+    h1, .h1 {
+        font-size: 36px;
+    }
+
+    .lbl-align {
+        margin-top: 5px;
+    }
+
+    .navbar-default {
+        border-top: 2px solid #2DBCEF;
+    }
+
+    .panel-heading {
+        background-color: #2DBCEF !important;
+    }
+
+    .panel {
+        border: 1px solid #2DBCEF !important;
+    }
+
+    .btn-primary {
+        background-color: #2DBCEF !important;
+        border-color: #2DBCEF !important;
+    }
+
+    .btn-default {
+        background-color: #2DBCEF !important;
+        border-color: #2DBCEF !important;
+    }
+
+    .well {
+        background-color: #2DBCEF !important;
+        color: #f4f7f6;
+    }
+</style>
+<body>
+<div class="row">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><i class="fa fa-users"
+                                                    aria-hidden="true"></i> Client On-Boarding</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{'/home'}">Home</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:href="@{'/master'}">Master</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="alert alert-success">
+            <strong>Success!</strong> don't refresh the page !!!...
+        </div>
+    </div>
+</div>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+
+    setTimeout(function () {
+        window.location = "https://kg-cob.herokuapp.com/"//will redirect to your blog page (an ex: blog.html)
+    }, 2000); //will call the function after 2 secs.
+
+</script>
+</body>
+</html>
