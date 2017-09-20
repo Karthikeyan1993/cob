@@ -34,7 +34,7 @@ public class GeneratePdfReport {
 			Image img = Image.getInstance(url);
 
 			Font headFont = FontFactory.getFont(FontFactory.TIMES_BOLD, 18f);
-			Paragraph title = new Paragraph("Customer copy- Client on bording", headFont);
+			Paragraph title = new Paragraph("Customer copy- Client on boarding", headFont);
 			title.setAlignment(Element.ALIGN_CENTER);
 
 			PdfPTable table = new PdfPTable(2);
